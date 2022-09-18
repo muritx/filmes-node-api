@@ -23,11 +23,11 @@ let movies = [
     },
 ];
 
-app.get("/", (req, res) => {
+app.get("/movie", (req, res) => {
     res.json(movies);
 });
 
-app.post('/', (req, res) => {
+app.post('/movie', (req, res) => {
     const movie = req.body
 
     console.log(movie);
@@ -35,7 +35,7 @@ app.post('/', (req, res) => {
     res.send('Filme adicionado a lista!');
 });
 
-app.get('/:id', (req,res) => {
+app.get('/movie/:id', (req,res) => {
     const id = req.params.id
 
     for (let movie of movies) {
@@ -47,7 +47,7 @@ app.get('/:id', (req,res) => {
     res.status(404).send('Filme!')
 })
 
-app.delete('/:id', (req,res) => {
+app.delete('/movie/:id', (req,res) => {
     const id = req.params.id
 
     movies = movies.filter(movie => {
@@ -59,4 +59,4 @@ app.delete('/:id', (req,res) => {
     res.send("FIlme foi apagado!");
 });
 
-app.listen(port, () => console.log('Servidor iniciado na porta ${port}'));
+app.listen(port, () => console.log('Servidor iniciado na porta {port}'));
