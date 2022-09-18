@@ -23,11 +23,11 @@ let movies = [
     },
 ];
 
-app.get("/movie", (req, res) => {
+app.get("/", (req, res) => {
     res.json(movies);
 });
 
-app.post('/movie', (req, res) => {
+app.post('/', (req, res) => {
     const movie = req.body
 
     console.log(movie);
@@ -35,7 +35,7 @@ app.post('/movie', (req, res) => {
     res.send('Filme adicionado a lista!');
 });
 
-app.get('/movie/:id', (req,res) => {
+app.get('/:id', (req,res) => {
     const id = req.params.id
 
     for (let movie of movies) {
@@ -47,7 +47,7 @@ app.get('/movie/:id', (req,res) => {
     res.status(404).send('Filme!')
 })
 
-app.delete('/movie/:id', (req,res) => {
+app.delete('/:id', (req,res) => {
     const id = req.params.id
 
     movies = movies.filter(movie => {
